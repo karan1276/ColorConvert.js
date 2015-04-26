@@ -9,6 +9,6 @@ Before sending a pull request remember to follow [jQuery Core Style Guide](http:
 5. Push to the branch: `git push origin my-new-feature`
 6. Submit a pull request :D
 
-#### Have you created a plugin from our boilerplate?
+# I'm a beginner
 
-[Let us know!](https://github.com/jquery-boilerplate/boilerplate/wiki/Sites) It’s interesting to see what features others have come up with.
+So i'm new to this amazing world of front-end web design and github, i may not know some things that are obvious to you. Try not go mad at me if i don't get why you wrote the code you did. Thanks :)
