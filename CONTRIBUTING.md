@@ -11,4 +11,4 @@ Before sending a pull request remember to follow [jQuery Core Style Guide](http:
 
 # I'm a beginner
 
-So i'm new to this amazing world of front-end web design and github, i may not know some things that are obvious to you. Try not go mad at me if i don't get why you wrote the code you did. Thanks :)
+So i'm new to this amazing world of front-end web design and github, i may not know some things that are obvious to you. Try not go mad at me :p if i don't get why you wrote the code you did. Thanks :)
