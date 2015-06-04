@@ -29,7 +29,7 @@ function colorConvert(color,opts){
 
 		//converting string to object with diffrent color codes being is properties
 		this.colorObj = this.stringToObject(color, this.formatIn );
-		console.log(colorObj);
+		console.log(this.colorObj);
 		/*my algorithm is that first we will convert the color to RGBA then from RGBA to any other format so its like:
 		random format --> RBGA --> wanted format*/
 		//this.RGBAColorObject = toRBG(this.orignalColorObject);
@@ -49,7 +49,7 @@ colorConvert.prototype = {
 		var regForHEX8s = /^#[0-9A-Fa-f]{4}$/;
 		var regForHSL = /^hsl\((\d{1,3}),(\d{1,2}%),(\d{1,2}%)\)$/;
 		var regForHSV = /^hsv\((\d{1,3}),(\d{1,2}%),(\d{1,2}%)\)$/;
-		var regForNAME = /^[a-z]{1,}$/
+		var regForNAME = /^([a-z]{1,})$/
 
 
 		//converts to lower case and removes whitespaces
@@ -94,10 +94,10 @@ colorConvert.prototype = {
 		//all regular expression used
 		var regForRGB = /^rgb\((\d{1,3}),(\d{1,3}),(\d{1,3})\)$/;
 		var regForRGBA = /^rgba\((\d{1,3}),(\d{1,3}),(\d{1,3}),(\d{0,}.\d{0,})\)$/;
-		var regForHEX = /^#[0-9A-Fa-f]{6}$/;
-		var regForHEXs = /^#[0-9A-Fa-f]{3}$/;
-		var regForHEX8 = /^#[0-9A-Fa-f]{8}$/;
-		var regForHEX8s = /^#[0-9A-Fa-f]{4}$/;
+		var regForHEX = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/;
+		var regForHEXs = /^#([0-9A-Fa-f])([0-9A-Fa-f])([0-9A-Fa-f])$/;
+		var regForHEX8 = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/;
+		var regForHEX8s = /^#([0-9A-Fa-f])([0-9A-Fa-f])([0-9A-Fa-f])([0-9A-Fa-f])$/;
 		var regForHSL = /^hsl\((\d{1,3}),(\d{1,2}%),(\d{1,2}%)\)$/;
 		var regForHSV = /^hsv\((\d{1,3}),(\d{1,2}%),(\d{1,2}%)\)$/;
 		var regForNAME = /^[a-z]{1,}$/
@@ -108,35 +108,77 @@ colorConvert.prototype = {
 		//applying diffrent methods for diffrent formats
 		switch (format) {
 				case "rgba":
-					console.log("inside rgba");
 					result = color.match(regForRGBA);
 					return {
 						r: result[1],
+						g: result[2],
+						b: result[3],
+						a: result[4]
 					};
 				break;
 				case "rgb":
-					console.log("inside rgb");
+					result = color.match(regForRGB);
+					return {
+						r: result[1],
+						g: result[2],
+						b: result[3]
+					};
 				break;
 				case "hex":
-					console.log("inside hex");
+					result = color.match(regForHEX);
+					return {
+						r: result[1],
+						g: result[2],
+						b: result[3]
+					};
 				break;
 				case "hexs":
-					console.log("inside hexs");
+					result = color.match(regForHEXs);
+					return {
+						r: result[1],
+						g: result[2],
+						b: result[3]
+					};
 				break;
 				case "hex8":
-					console.log("inside hex8");
+					result = color.match(regForHEX8);
+					return {
+						r: result[1],
+						g: result[2],
+						b: result[3],
+						a: result[4]
+					};
 				break;
 				case "hex8s":
-					console.log("inside hex8s");
+					result = color.match(regForHEX8s);
+					return {
+						r: result[1],
+						g: result[2],
+						b: result[3],
+						a: result[4]
+					};
 				break;
 				case "hsl":
-					console.log("inside hsl");
+					result = color.match(regForHSL);
+					return {
+						h: result[1],
+						s: result[2],
+						l: result[3],
+					};
 				break;
 				case "hsv":
-					console.log("inside hsv");
+					result = color.match(regForHSV);
+					return {
+						h: result[1],
+						s: result[2],
+						v: result[3],
+					};
 				break;
 				case "name":
-					console.log("inside name");
+				result = color.match(regForNAME);
+				return {
+					name: result[0]
+				};
 				break;
 				default:
 
